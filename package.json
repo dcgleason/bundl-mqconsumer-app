@@ -1,0 +1,17 @@
+{
+    "name": "bundl-consumer-app",
+    "version": "1.0.0",
+    "description": "A consumer app for processing email queue",
+    "main": "src/messageConsumer.js",
+    "scripts": {
+      "start": "node src/messageConsumer.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Daniel Gleason",
+    "license": "ISC",
+    "dependencies": {
+      "amqplib": "^0.8.0",
+      "nodemailer": "^6.7.2"
+    }
+  }
+  
