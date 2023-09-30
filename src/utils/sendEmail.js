@@ -29,4 +29,5 @@ const sendEmail = async (recipients, subject, text, userId, userName, userEmail)
   }
 };
 
+
 module.exports = sendEmail;
