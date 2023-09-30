@@ -1,7 +1,10 @@
 const amqp = require('amqplib/callback_api');
 const sendEmail = require('./utils/sendEmail'); // Import your sendEmail function
 
-amqp.connect('amqps://your-amazon-mq-url', (error, connection) => {
+// Use your specific AmazonMQ AMQP endpoint
+const amazonMqUrl = 'amqps://b-5b5885c9-d33b-41aa-94fc-faad831a859f.mq.us-east-1.amazonaws.com:5671';
+
+amqp.connect(amazonMqUrl, (error, connection) => {
   if (error) throw error;
 
   connection.createChannel((error, channel) => {
@@ -9,7 +12,8 @@ amqp.connect('amqps://your-amazon-mq-url', (error, connection) => {
 
     const queue = 'emailQueue';
 
-    channel.assertQueue(queue, { durable: false });
+    // Make the queue durable
+    channel.assertQueue(queue, { durable: true });
 
     console.log(`Waiting for messages in queue: ${queue}`);
 
